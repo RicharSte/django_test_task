@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<li>
+    <a class="nav-link" href="">Мои книги</a>
+</li>
+<li>
+    <a class="nav-link" href="get-book-info/">Добавить книги</a>
+</li>
+<li>
+    <a class="nav-link" href="get-info/">Добавить информацию о себе</a>
+</li>
+{% else %}
+Для входа в разные учётные записи прошу спользовать следующие данные<br>
+<br>
+Админ<br>
+username: admin<br>
+password: admin<br>
+<br>
+Пользователь<br>
+username: qwerty<br>
+password: The password is too similar to the username.<br>
+<li>
+    <a class="nav-link" href="login/">Логин</a>
+</li>
+{% endif %}
+{% endblock %}
