@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from .forms import BookForm
+from .models import Book_info
 
 #оцень похоже на пове для получения информации от юзера
 #тут тоже нужно пускать  зарегистрированных пользователей
@@ -21,4 +22,9 @@ def get_book_info(request, *args, **kwargs):
         form = BookForm(request.POST or None)
     
     return render(request,'books\Book-info.html', {'form':form})
+
+@login_required(login_url='/login/')
+def get_my_books(request):
+    books = Book_info.objects.filter(owner_id=request.user.id)
+    return render(request, 'books\My-books.html', {'books':books})
 

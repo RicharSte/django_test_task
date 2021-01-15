@@ -20,7 +20,7 @@ from django.conf import settings
 
 #инпортируем нужные модули для работы
 from user.views import index, loginPage, get_user_info
-from books.views import get_book_info
+from books.views import get_book_info, get_my_books
 
 #Напоминани: проставить имена
 urlpatterns = [
@@ -29,6 +29,7 @@ urlpatterns = [
     path('login/', loginPage),
     path('get-info/', get_user_info),
     path('get-book-info/', get_book_info),
+    path('my-books/', get_my_books),
 ]
 
 #Нужно для коретного сохранения фото
